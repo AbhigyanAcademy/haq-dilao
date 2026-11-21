@@ -1,7 +1,7 @@
 # Build steps (strict order; verify each before moving on)
 
-Time budget (6 hours): Steps 0-2 = 1h15, Step 3 = 30m, Step 4 = 45m, Step 5 = 60m, Step 6 = 30m, Step 7 = 45m, Step 8 = 45m, Step 9 = 75m (only if time remains), Step 10 = 30m.
-If behind schedule, cut in this order: Step 9 extension, near-miss, language toggle. Never cut Step 8 (admin new-scheme demo).
+Time budget (6 hours, tight): Steps 0-2 = 75m, Step 3 = 25m, Step 4 = 40m, Step 5 = 60m, Step 5b = 40m, Step 6 = 25m, Step 7 = 40m, Step 8 = 40m, Step 10 = 15m. Step 9 (extension) only if the build is ahead of schedule.
+If behind schedule, cut in this order: Step 9 extension, near-miss, language toggle, LLM layer of the command bar (keep deterministic intents). Never cut Step 8 (admin new-scheme demo).
 
 ## Step 0 — Environment check
 - Run `node -v`, `npm -v`, `git --version`. Node must be a version supported by current Next.js (check its docs).
@@ -11,7 +11,7 @@ If behind schedule, cut in this order: Step 9 extension, near-miss, language tog
 - `cd haq-dilao`, `git init`, create `.gitignore` (node_modules, .next, `web/.env.local`).
 - Run `npx create-next-app@latest --help`, then create the app in `web/` with TypeScript, Tailwind, ESLint, App Router, no `src` dir unless the default demands it (note whatever you choose in `docs/progress.md`).
 - Create `web/.env.local` and `web/.env.example` per `tech-stack.md`; generate SESSION_SECRET with node.
-- Set up theme tokens (colors, radius, shadow) and fonts (Young Serif, Figtree, plus Noto Sans Bengali/Devanagari fallbacks) exactly per `docs/design-system.md`. Verify the font names exist in `next/font/google` first; if one is missing, tell me.
+- Set up theme tokens (colors, radius, shadow) and fonts (Instrument Serif, Figtree, plus Noto Sans Bengali/Devanagari fallbacks) exactly per `docs/design-system.md`. Verify the font names exist in `next/font/google` first; if one is missing, tell me.
 - Check: `npm run dev` starts, the home page loads (fetch it with curl.exe or Invoke-WebRequest and show status 200), `npm run build` succeeds.
 
 ## Step 2 — Types, store, seed data
@@ -36,16 +36,24 @@ If behind schedule, cut in this order: Step 9 extension, near-miss, language tog
 - Validate inputs server-side. Never return `password_hash` to the client.
 - Check: register a new farmer via the UI flow, log out, log in, wrong password rejected, `/dashboard` redirects to login when logged out.
 
-## Step 5 — Dashboard and scheme detail
-- Dashboard: eligible only, badges, countdown, apply score, sort order per scope, collapsed Closed section, empty state.
-- Scheme detail: summary (placeholder for now: `summary_fallback`), why-you-qualify, documents checklist (saves to profile `documents_have`, score updates), dates, source link and last-verified date, Apply button.
-- Build with the components in `docs/design-system.md`: AppShell with gamosa edge and mobile bottom tab bar, ClaimSlip, ScoreRing, Badge, DocChecklist, Skeleton, EmptyState. Follow its screen layouts and copy rules.
-- Check: the three demo users see different dashboards; ticking a document changes the score; closed/near-deadline badges render using the demo scheme.
+## Step 5 — Glass shell, dashboard and scheme detail
+- Install Framer Motion (verify package name and React compatibility with `npm view` first; record the choice in `docs/progress.md`).
+- Build per `docs/design-system.md`: `MeshBackground` (CSS transforms only, no blur filter, no canvas), `AppShell` (gamosa thread, top bar, notification bell, mobile bottom nav if needed), `GlassCard` with the fallbacks, `Badge`, `ScoreRing`, `DocReadinessDrawer`, `Skeleton`, `EmptyState`. Follow the performance rules (max 6 backdrop-filter cards on mobile, animate transform and opacity only).
+- Dashboard (command bar comes in Step 5b): eligible schemes only as `SchemeGlassCard`s, sorted Closing soon, then New, then apply score; collapsed Closed section; counts line.
+- Scheme detail: summary (placeholder `summary_fallback` for now), why-you-qualify, documents checklist (saves `documents_have`, score and drawer update), dates, source link, last verified date, Apply button.
+- Check: three demo users see different dashboards; ticking a document changes the score and the drawer indicators; with `prefers-reduced-motion` emulated nothing animates; with backdrop-filter disabled the cards are still readable; spot-check text contrast (AA) on cards over the brightest part of the mesh.
+
+## Step 5b — Command bar
+- Implement per `docs/command-bar.md`: `lib/intents.ts` (deterministic parsing, pure functions), `CommandBar` component with the start state, the Framer Motion `layout` glide to the top, mobile docking to the bottom, quick-prompt pills, and an `aria-live` summary line.
+- Add a small test script `scripts/test-intents.ts` (at least 10 cases: each intent, unknown, empty input, 500+ characters).
+- The optional LLM classification is wired in Step 6 once `lib/llm.ts` exists; until then unknown queries return the friendly fallback.
+- Check: `npx tsx scripts/test-intents.ts` passes; each pill produces the right result for each demo user; results only ever include eligible schemes; the bar glides smoothly and works with the keyboard; works fully offline.
 
 ## Step 6 — LLM layer
 - `lib/llm.ts`: try NVIDIA, then Gemini (only if `GEMINI_API_KEY` and `GEMINI_MODEL` are set; skip silently otherwise), then static fallback. 8-second timeout per provider. Cache scheme summaries in `data/summary-cache.json`. Personalized insight cached by `userId+schemeId+profile hash`; fallback to deterministic text built from `whyYouQualify` and missing documents.
 - System prompt rule for both providers: "Use ONLY the facts provided. Do not add amounts, dates, links or eligibility rules that are not in the input. Write simple English for a first-time reader. 3-4 sentences."
 - Before writing provider code, confirm endpoint and request shape in official docs (web fetch if available). Ask me for `NVIDIA_MODEL` and `GEMINI_MODEL` if blank.
+- Wire the optional LLM intent classifier for the command bar (see `docs/command-bar.md`): validate its JSON by hand against the intent allowlist; invalid output becomes `unknown`.
 - Provide `npm run warm-cache` to pre-generate all summaries so the demo never waits.
 - Check: with keys set, a summary is returned and cached; with `NVIDIA_API_KEY` cleared, Gemini is used; with both cleared, `summary_fallback` is shown and the page still works.
 

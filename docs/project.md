@@ -33,7 +33,7 @@ We remove the hard part: finding the right schemes and preparing the application
 - Every scheme shown has a visible source link and last-verified date.
 
 ## Look and feel
-See `design-system.md` (gamosa edge, claim-slip cards, mobile-first).
+See `design-system.md` (dark frosted glass, ambient mesh, floating AI command bar, gamosa thread) and `command-bar.md`.
 
 ## Out of scope
 See `features-scope.md`.

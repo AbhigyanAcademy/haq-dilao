@@ -2,6 +2,7 @@
 
 0:00 Story (20 s): "Meet a farmer in Jorhat who never knew he qualified for support. There are hundreds of schemes and no clear way to know which are his."
 0:20 Register the farmer (pre-recorded or fast): show only 3 steps. Dashboard shows ONLY his eligible schemes, with a total of what he qualifies for.
+0:35 Command bar: tap "Closing this week" -> bar glides up, glass cards materialize; open the Documents drawer on one card and show the match indicators.
 0:50 Open a scheme: AI summary, why-you-qualify, apply score, document checklist. Tick a missing document -> score rises.
 1:20 Apply: application sheet pre-filled, copy buttons, Open official portal. (If Step 9 is done) switch to student: extension autofills the DEMO mock portal. Say: "The citizen only does OTP and submits."
 1:50 Tracker: mark applied, show status timeline, press "simulate update", bell lights up.

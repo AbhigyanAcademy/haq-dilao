@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Young_Serif, Figtree, Noto_Sans_Bengali, Noto_Sans_Devanagari } from "next/font/google";
+import { Instrument_Serif, Figtree, Noto_Sans_Bengali, Noto_Sans_Devanagari } from "next/font/google";
 import "./globals.css";
 
-const youngSerif = Young_Serif({
+const instrumentSerif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-young-serif",
+  variable: "--font-instrument-serif",
   display: "swap",
   weight: "400",
 });
@@ -34,15 +34,15 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#12312B",
+  themeColor: "#06070A",
   width: "device-width",
   initialScale: 1,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${youngSerif.variable} ${figtree.variable} ${notoSansBengali.variable} ${notoSansDevanagari.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-[var(--paper)] text-[var(--ink)] font-[var(--font-figtree)]">
+    <html lang="en" className={`${instrumentSerif.variable} ${figtree.variable} ${notoSansBengali.variable} ${notoSansDevanagari.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col bg-[var(--obsidian)] text-[var(--text-1)] font-[var(--font-figtree)]">
         {children}
       </body>
     </html>

@@ -4,6 +4,8 @@
 1. Two-step registration (account + common fields, then role fields), login, logout, profile edit.
 2. Scheme dataset: about 6 schemes per role (draft, flagged unverified) + demo schemes.
 3. Eligibility engine + dashboard showing only eligible schemes, sorted: Closing soon first, then New, then by apply score.
+4a. Command bar on the dashboard (`docs/command-bar.md`): deterministic intents, optional LLM intent classification, quick-prompt pills, animated glide from center to top (docked at the bottom on mobile).
+4b. Glass scheme cards with live eligibility badges and a Document readiness drawer.
 4. Scheme detail page: AI summary, deterministic why-you-qualify, AI insight (optional, fallback text), apply score, document checklist (user ticks documents they own), posted date, last date, countdown, source link, last verified.
 5. Application sheet (pre-filled answers mapped from `form_fields`) with a Copy button per field and "Open official portal" button.
 6. "Mark as applied" with application ID -> My Applications tracker with status timeline.

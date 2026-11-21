@@ -1,0 +1,1260 @@
+[
+  {
+    "id": "pm-kisan",
+    "role": "farmer",
+    "name": "PM-KISAN",
+    "benefit": "₹6,000 per year in three equal installments",
+    "rules": [
+      {
+        "field": "land_hectares",
+        "op": "lte",
+        "value": 2,
+        "label": "Land holding up to 2 hectares"
+      },
+      {
+        "field": "land_ownership",
+        "op": "eq",
+        "value": "owner",
+        "label": "Land owner (not lessee)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record",
+      "Bank passbook"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "father_name",
+      "gender",
+      "category",
+      "state",
+      "district",
+      "sub_district",
+      "village",
+      "land_hectares",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2019-02-24",
+    "last_date": null,
+    "status_note": "Central government scheme, open all year",
+    "summary_fallback": "PM-KISAN provides income support of ₹6,000 per year to small and marginal farmer families who own up to 2 hectares of cultivable land. The amount is paid in three equal installments of ₹2,000 each directly into the beneficiary's bank account. Eligibility requires land ownership and the land must be cultivable.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current eligibility rules, land ceiling, exclusion criteria (institutional landholders, higher income, etc.), and official apply portal URL.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pm-fasal-bima",
+    "role": "farmer",
+    "name": "PM Fasal Bima Yojana",
+    "benefit": "Crop insurance with low premium (2% for kharif, 1.5% for rabi, 5% for commercial/horticultural)",
+    "rules": [
+      {
+        "field": "land_ownership",
+        "op": "in",
+        "value": [
+          "owner",
+          "lessee"
+        ],
+        "label": "Owner or lessee farmer"
+      },
+      {
+        "field": "has_kcc",
+        "op": "eq",
+        "value": true,
+        "label": "Has Kisan Credit Card"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record",
+      "Bank passbook",
+      "Sowing certificate"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "father_name",
+      "state",
+      "district",
+      "crop",
+      "season",
+      "area_insured",
+      "sum_insured",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2016-04-01",
+    "last_date": null,
+    "status_note": "Season-based enrollment windows apply",
+    "summary_fallback": "PM Fasal Bima Yojana provides crop insurance to farmers against yield losses due to natural calamities, pests, and diseases. Farmers pay a very low premium (2% for kharif crops, 1.5% for rabi crops, 5% for commercial/horticultural crops) and the rest is subsidized by the government. Both loanee farmers (with KCC) and non-loanee farmers can enroll during the season-specific enrollment window.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current premium rates, enrollment windows per season, covered crops per state, and official portal URL.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "kisan-credit-card",
+    "role": "farmer",
+    "name": "Kisan Credit Card (KCC)",
+    "benefit": "Credit limit up to ₹3 lakh at 4% interest (with prompt repayment subvention)",
+    "rules": [
+      {
+        "field": "land_ownership",
+        "op": "in",
+        "value": [
+          "owner",
+          "lessee"
+        ],
+        "label": "Owner or lessee farmer"
+      },
+      {
+        "field": "age",
+        "op": "gte",
+        "value": 18,
+        "label": "Age 18 or above"
+      },
+      {
+        "field": "age",
+        "op": "lte",
+        "value": 75,
+        "label": "Age up to 75"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record",
+      "Bank passbook",
+      "Passport photo"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "father_name",
+      "address",
+      "land_details",
+      "crops_grown",
+      "credit_limit_required",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "1998-08-01",
+    "last_date": null,
+    "status_note": "Available through all major banks",
+    "summary_fallback": "Kisan Credit Card provides short-term credit to farmers for cultivation expenses (seeds, fertilizers, pesticides) and post-harvest needs. The credit limit is based on the scale of finance for crops grown and land area. Interest rate is 7% per annum, but with 3% prompt repayment subvention, effective rate is 4%. Additional 2% subvention for timely repayment makes it effectively 2% for some borrowers.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current interest rates, subvention rules, credit limit calculation, and which banks offer KCC in Assam.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "soil-health-card",
+    "role": "farmer",
+    "name": "Soil Health Card Scheme",
+    "benefit": "Free soil testing and nutrient recommendation card every 2 years",
+    "rules": [
+      {
+        "field": "land_ownership",
+        "op": "in",
+        "value": [
+          "owner",
+          "lessee"
+        ],
+        "label": "Owner or lessee farmer"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "father_name",
+      "state",
+      "district",
+      "village",
+      "survey_number",
+      "land_area"
+    ],
+    "posted_date": "2015-02-19",
+    "last_date": null,
+    "status_note": "Implemented through state agriculture departments",
+    "summary_fallback": "The Soil Health Card scheme provides farmers with a card containing soil nutrient status of their farm and recommendations for appropriate fertilizer use. Soil samples are collected from farms and tested in labs for 12 parameters (pH, EC, OC, N, P, K, S, Zn, Fe, Cu, Mn, B). The card is issued every 2 years, helping farmers apply the right nutrients and reduce input costs.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current testing parameters, frequency, and how to apply in Assam.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pm-kusum",
+    "role": "farmer",
+    "name": "PM-KUSUM (Component B - Standalone Solar Pumps)",
+    "benefit": "Subsidy up to 60% (30% central + 30% state) for solar water pumps up to 7.5 HP",
+    "rules": [
+      {
+        "field": "land_ownership",
+        "op": "eq",
+        "value": "owner",
+        "label": "Land owner"
+      },
+      {
+        "field": "has_irrigation",
+        "op": "eq",
+        "value": false,
+        "label": "No existing irrigation (priority)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record",
+      "Bank passbook",
+      "Caste certificate (if applicable)"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "father_name",
+      "state",
+      "district",
+      "village",
+      "land_hectares",
+      "water_source",
+      "pump_hp",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2019-03-08",
+    "last_date": null,
+    "status_note": "State-specific allocation; apply through state nodal agency",
+    "summary_fallback": "PM-KUSUM Component B provides subsidies for installing standalone solar-powered agriculture pumps up to 7.5 HP. The central government provides 30% subsidy, state government provides 30%, and the farmer contributes 40% (can be financed through loan). Priority is given to farmers without grid-connected irrigation. The scheme helps reduce diesel costs and provides reliable daytime irrigation.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current subsidy percentages, state nodal agency in Assam, pump capacity limits, and application process.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "national-mission-edible-oils",
+    "role": "farmer",
+    "name": "National Mission on Edible Oils - Oil Palm (NMEO-OP)",
+    "benefit": "Subsidy for oil palm cultivation inputs, maintenance, and intercropping",
+    "rules": [
+      {
+        "field": "land_hectares",
+        "op": "gte",
+        "value": 0.5,
+        "label": "Minimum 0.5 hectare for oil palm"
+      },
+      {
+        "field": "state",
+        "op": "eq",
+        "value": "Assam",
+        "label": "Resident of focus state (NE states prioritized)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record",
+      "Bank passbook",
+      "Soil suitability certificate"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "father_name",
+      "state",
+      "district",
+      "village",
+      "land_hectares",
+      "proposed_area_oil_palm",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2021-08-18",
+    "last_date": null,
+    "status_note": "Focus on North Eastern states including Assam",
+    "summary_fallback": "NMEO-OP promotes oil palm cultivation in North Eastern states and Andaman & Nicobar Islands. It provides financial assistance for planting material, maintenance for 4 years, intercropping, bore wells, and harvesting tools. The scheme aims to reduce India's edible oil import dependence. Assam is a focus state with high potential for oil palm.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current subsidy components, eligible districts in Assam, soil/climate requirements, and application process.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "central-sector-scholarship",
+    "role": "student",
+    "name": "Central Sector Scholarship Scheme (CSSS)",
+    "benefit": "₹10,000/year for UG, ₹20,000/year for PG (up to 5 years)",
+    "rules": [
+      {
+        "field": "education_level",
+        "op": "in",
+        "value": [
+          "ug",
+          "pg"
+        ],
+        "label": "Undergraduate or postgraduate student"
+      },
+      {
+        "field": "last_exam_percent",
+        "op": "gte",
+        "value": 80,
+        "label": "At least 80% in Class 12 (or equivalent)"
+      },
+      {
+        "field": "annual_income",
+        "op": "lte",
+        "value": 450000,
+        "label": "Family income up to ₹4.5 lakh/year"
+      },
+      {
+        "field": "institution_type",
+        "op": "eq",
+        "value": "govt",
+        "label": "Studying in government institution"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Class 12 marksheet",
+      "Income certificate",
+      "Bank passbook",
+      "Bonafide certificate",
+      "Caste certificate (if applicable)"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "dob",
+      "category",
+      "state",
+      "district",
+      "institution_name",
+      "course",
+      "year_of_study",
+      "class12_percentage",
+      "annual_income",
+      "bank_account",
+      "ifsc",
+      "aadhaar_last4"
+    ],
+    "posted_date": "2018-07-01",
+    "last_date": null,
+    "status_note": "Apply on National Scholarship Portal (NSP)",
+    "summary_fallback": "Central Sector Scholarship Scheme provides financial assistance to meritorious students from low-income families for higher education. Students who scored 80% or above in Class 12 and have family income up to ₹4.5 lakh/year are eligible. The scholarship is ₹10,000 per year for undergraduate courses and ₹20,000 per year for postgraduate courses, for up to 5 years. Only students in government/government-aided institutions are eligible.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current income ceiling, percentage cutoff, eligible courses/institutions, and NSP application timeline.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "post-matric-scholarship",
+    "role": "student",
+    "name": "Post-Matric Scholarship for SC/ST/OBC",
+    "benefit": "Full tuition fee + maintenance allowance (varies by course and state)",
+    "rules": [
+      {
+        "field": "category",
+        "op": "in",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ],
+        "label": "SC, ST, or OBC category"
+      },
+      {
+        "field": "education_level",
+        "op": "in",
+        "value": [
+          "ug",
+          "pg"
+        ],
+        "label": "Post-matriculation level (Class 11 onwards)"
+      },
+      {
+        "field": "annual_income",
+        "op": "lte",
+        "value": 250000,
+        "label": "Family income up to ₹2.5 lakh/year (SC/ST), ₹1.5 lakh/year (OBC)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Caste certificate",
+      "Income certificate",
+      "Previous marksheet",
+      "Fee receipt",
+      "Bank passbook",
+      "Bonafide certificate"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "dob",
+      "category",
+      "state",
+      "district",
+      "institution_name",
+      "course",
+      "year_of_study",
+      "annual_income",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2022-04-01",
+    "last_date": "2025-10-31",
+    "status_note": "State-specific deadlines; apply on NSP or state portal",
+    "summary_fallback": "Post-Matric Scholarship provides full fee reimbursement and maintenance allowance to SC/ST/OBC students studying at post-matriculation level (Class 11 through PhD). Family income ceiling is ₹2.5 lakh/year for SC/ST and ₹1.5 lakh/year for OBC. The scholarship covers tuition fees, maintenance allowance, book grant, and other allowances as per state norms. Applications are typically submitted on the National Scholarship Portal or state scholarship portals.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current income ceilings per category, maintenance allowance rates, state-specific deadlines, and portal for Assam.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pre-matric-scholarship",
+    "role": "student",
+    "name": "Pre-Matric Scholarship for SC/ST/OBC (Class 9-10)",
+    "benefit": "₹225-525/month maintenance + book grant + fee reimbursement",
+    "rules": [
+      {
+        "field": "category",
+        "op": "in",
+        "value": [
+          "sc",
+          "st",
+          "obc"
+        ],
+        "label": "SC, ST, or OBC category"
+      },
+      {
+        "field": "education_level",
+        "op": "eq",
+        "value": "school",
+        "label": "Class 9 or 10 student"
+      },
+      {
+        "field": "annual_income",
+        "op": "lte",
+        "value": 250000,
+        "label": "Family income up to ₹2.5 lakh/year (SC/ST), ₹1.5 lakh/year (OBC)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Caste certificate",
+      "Income certificate",
+      "Previous marksheet",
+      "School bonafide",
+      "Bank passbook"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "dob",
+      "category",
+      "state",
+      "district",
+      "school_name",
+      "class_studying",
+      "annual_income",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2022-04-01",
+    "last_date": "2025-09-30",
+    "status_note": "Apply on NSP or state portal before deadline",
+    "summary_fallback": "Pre-Matric Scholarship supports SC/ST/OBC students in Classes 9 and 10 to reduce dropout rates. It provides a monthly maintenance allowance (₹225 for day scholars, ₹525 for hostellers), annual book grant (₹1,000), and fee reimbursement. Family income ceiling is ₹2.5 lakh/year for SC/ST and ₹1.5 lakh/year for OBC. The scholarship is disbursed directly to the student's bank account.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current allowance rates, income ceilings, and application process for Assam.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pm-vidyalaxmi",
+    "role": "student",
+    "name": "PM-Vidyalaxmi Education Loan Scheme",
+    "benefit": "Collateral-free loan up to ₹10 lakh for higher education; 3% interest subvention during moratorium",
+    "rules": [
+      {
+        "field": "education_level",
+        "op": "in",
+        "value": [
+          "ug",
+          "pg"
+        ],
+        "label": "Undergraduate or postgraduate"
+      },
+      {
+        "field": "institution_type",
+        "op": "in",
+        "value": [
+          "govt",
+          "private"
+        ],
+        "label": "Recognized institution"
+      },
+      {
+        "field": "annual_income",
+        "op": "lte",
+        "value": 800000,
+        "label": "Family income up to ₹8 lakh/year for interest subvention"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Admission letter",
+      "Fee structure",
+      "Income certificate",
+      "Bank passbook",
+      "Marksheets",
+      "Co-borrower KYC"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "dob",
+      "category",
+      "state",
+      "district",
+      "institution_name",
+      "course",
+      "course_duration",
+      "annual_fee",
+      "loan_amount_required",
+      "annual_income",
+      "bank_account",
+      "ifsc",
+      "co_borrower_name",
+      "co_borrower_income"
+    ],
+    "posted_date": "2024-08-01",
+    "last_date": null,
+    "status_note": "New scheme; apply through participating banks or Vidyalaxmi portal",
+    "summary_fallback": "PM-Vidyalaxmi provides collateral-free education loans up to ₹10 lakh for students admitted to quality higher education institutions. The government provides 3% interest subvention during the moratorium period (course duration + 1 year) for students with family income up to ₹8 lakh/year. The loan covers tuition fees, hostel fees, books, equipment, and other educational expenses. No processing charges or prepayment penalties.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current loan limit, interest subvention rules, list of eligible institutions, and participating banks.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "nijut-moina",
+    "role": "student",
+    "name": "Nijut Moina Scheme (Assam)",
+    "benefit": "Monthly stipend ₹1,000 (Class 11-12), ₹1,250 (UG), ₹2,500 (PG) for girls",
+    "rules": [
+      {
+        "field": "gender",
+        "op": "eq",
+        "value": "female",
+        "label": "Girl student"
+      },
+      {
+        "field": "state",
+        "op": "eq",
+        "value": "Assam",
+        "label": "Resident of Assam"
+      },
+      {
+        "field": "education_level",
+        "op": "in",
+        "value": [
+          "school",
+          "ug",
+          "pg"
+        ],
+        "label": "Class 11 onwards"
+      },
+      {
+        "field": "institution_type",
+        "op": "eq",
+        "value": "govt",
+        "label": "Government or provincialized institution"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Age proof",
+      "School/college ID",
+      "Bank passbook",
+      "Domicile certificate"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "dob",
+      "state",
+      "district",
+      "institution_name",
+      "class_or_course",
+      "bank_account",
+      "ifsc",
+      "aadhaar_last4"
+    ],
+    "posted_date": "2024-02-15",
+    "last_date": null,
+    "status_note": "Assam government scheme; apply through institution",
+    "summary_fallback": "Nijut Moina is an Assam government scheme providing monthly stipends to girl students to prevent child marriage and promote education. Girls in Classes 11-12 receive ₹1,000/month, undergraduate students ₹1,250/month, and postgraduate students ₹2,500/month. The stipend is paid directly to the girl's bank account. Eligibility requires enrollment in a government or provincialized institution in Assam.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current stipend amounts, eligible institutions, age limits, and application process through Assam education department.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "minority-merit-scholarship",
+    "role": "student",
+    "name": "Merit-cum-Means Scholarship for Minority Students",
+    "benefit": "₹20,000/year (day scholar) / ₹30,000/year (hosteller) + course fee",
+    "rules": [
+      {
+        "field": "category",
+        "op": "eq",
+        "value": "obc",
+        "label": "Minority community (Muslim, Christian, Sikh, Buddhist, Jain, Parsi)"
+      },
+      {
+        "field": "education_level",
+        "op": "in",
+        "value": [
+          "ug",
+          "pg"
+        ],
+        "label": "Technical/professional courses at UG/PG level"
+      },
+      {
+        "field": "last_exam_percent",
+        "op": "gte",
+        "value": 50,
+        "label": "At least 50% in previous exam"
+      },
+      {
+        "field": "annual_income",
+        "op": "lte",
+        "value": 250000,
+        "label": "Family income up to ₹2.5 lakh/year"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Minority community certificate",
+      "Income certificate",
+      "Previous marksheet",
+      "Fee receipt",
+      "Bank passbook",
+      "Bonafide certificate"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "dob",
+      "community",
+      "state",
+      "district",
+      "institution_name",
+      "course",
+      "year_of_study",
+      "previous_percentage",
+      "annual_income",
+      "bank_account",
+      "ifsc"
+    ],
+    "posted_date": "2023-07-01",
+    "last_date": "2025-10-31",
+    "status_note": "Apply on NSP; 30% reserved for girls",
+    "summary_fallback": "Merit-cum-Means Scholarship supports minority community students (Muslim, Christian, Sikh, Buddhist, Jain, Parsi) pursuing technical and professional courses at undergraduate and postgraduate levels. It provides course fee reimbursement plus maintenance allowance (₹20,000/year for day scholars, ₹30,000/year for hostellers). Minimum 50% marks in previous exam and family income up to ₹2.5 lakh/year required. 30% of scholarships are reserved for girl students.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current eligible courses, community certificate format, income ceiling, and NSP application timeline.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pm-mudra",
+    "role": "business",
+    "name": "PM Mudra Yojana (Shishu/Kishor/Tarun)",
+    "benefit": "Collateral-free loan up to ₹10 lakh (Shishu: ₹50K, Kishor: ₹5L, Tarun: ₹10L)",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "in",
+        "value": [
+          "idea",
+          "new",
+          "existing"
+        ],
+        "label": "Any business stage"
+      },
+      {
+        "field": "annual_turnover",
+        "op": "lte",
+        "value": 5000000,
+        "label": "Turnover up to ₹50 lakh (for Shishu/Kishor)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "PAN",
+      "Business proof",
+      "Bank statement",
+      "Project report",
+      "Caste certificate (if applicable)"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "category",
+      "state",
+      "district",
+      "business_name",
+      "business_type",
+      "business_stage",
+      "annual_turnover",
+      "loan_category",
+      "loan_amount",
+      "bank_account",
+      "ifsc",
+      "aadhaar_last4",
+      "pan"
+    ],
+    "posted_date": "2015-04-08",
+    "last_date": null,
+    "status_note": "Apply through any bank/NBFC/MFI; 3 categories: Shishu (₹50K), Kishor (₹5L), Tarun (₹10L)",
+    "summary_fallback": "PM Mudra Yojana provides collateral-free micro-enterprise loans through banks, NBFCs, and MFIs. Three categories: Shishu (up to ₹50,000 for new/early stage), Kishor (₹50,000 to ₹5 lakh for growing businesses), Tarun (₹5 lakh to ₹10 lakh for established businesses). No collateral required. Interest rates are competitive (typically 8-12%). Women, SC/ST, and minority borrowers may get preferential terms. The loan can be used for working capital, equipment, vehicles, etc.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current loan categories, interest rates, eligible activities, and which lenders in Assam offer Mudra.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "stand-up-india",
+    "role": "business",
+    "name": "Stand-Up India",
+    "benefit": "Bank loan ₹10 lakh to ₹1 crore for greenfield projects (SC/ST/women entrepreneurs)",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "eq",
+        "value": "idea",
+        "label": "Greenfield (new) project"
+      },
+      {
+        "field": "category",
+        "op": "in",
+        "value": [
+          "sc",
+          "st"
+        ],
+        "label": "SC or ST entrepreneur"
+      },
+      {
+        "field": "woman_owned",
+        "op": "eq",
+        "value": true,
+        "label": "Women entrepreneur (also eligible)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "PAN",
+      "Caste certificate (if SC/ST)",
+      "Project report",
+      "Land/premises proof",
+      "Bank statement",
+      "Experience certificates"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "category",
+      "state",
+      "district",
+      "business_name",
+      "project_type",
+      "project_cost",
+      "loan_amount",
+      "promoter_contribution",
+      "bank_account",
+      "ifsc",
+      "aadhaar_last4",
+      "pan"
+    ],
+    "posted_date": "2016-04-05",
+    "last_date": null,
+    "status_note": "At least one SC/ST and one woman borrower per bank branch; greenfield only",
+    "summary_fallback": "Stand-Up India facilitates bank loans of ₹10 lakh to ₹1 crore for greenfield enterprises by SC/ST and women entrepreneurs. Each bank branch must lend to at least one SC/ST borrower and one woman borrower. The loan covers 75% of project cost (up to ₹1 crore), with 25% promoter contribution. Repayment up to 7 years with 18-month moratorium. The scheme is for new (greenfield) projects in manufacturing, services, or trading sectors.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current loan terms, eligible sectors, promoter contribution, and application process through banks.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pm-egp",
+    "role": "business",
+    "name": "Prime Minister's Employment Generation Programme (PMEGP)",
+    "benefit": "Subsidy 15-35% of project cost (max ₹25L mfg, ₹10L services) + bank loan",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "eq",
+        "value": "idea",
+        "label": "New enterprise (not existing)"
+      },
+      {
+        "field": "age",
+        "op": "gte",
+        "value": 18,
+        "label": "Age 18 or above"
+      },
+      {
+        "field": "education_level",
+        "op": "eq",
+        "value": "school",
+        "label": "Minimum Class 8 pass (for projects above ₹10L/₹5L)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "PAN",
+      "Project report",
+      "Educational certificates",
+      "Caste certificate (if applicable)",
+      "Land/rent agreement",
+      "Bank statement"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "category",
+      "age",
+      "education_level",
+      "state",
+      "district",
+      "business_name",
+      "activity_type",
+      "project_cost",
+      "own_contribution",
+      "bank_account",
+      "ifsc",
+      "aadhaar_last4",
+      "pan"
+    ],
+    "posted_date": "2008-10-01",
+    "last_date": null,
+    "status_note": "Apply on PMEGP portal; implemented through KVIC/DIC/State KVIB",
+    "summary_fallback": "PMEGP provides credit-linked subsidy for setting up new micro-enterprises in non-farm sectors. Subsidy is 15-35% of project cost depending on category and location (higher for SC/ST/OBC/women/minorities and in North East/hill areas). Maximum project cost: ₹25 lakh (manufacturing), ₹10 lakh (services). Bank provides 60-75% as term loan, beneficiary contributes 5-10%. Implemented through KVIC, State KVIB, and DIC.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current subsidy rates per category/region, eligible activities, and application process for Assam.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "cgtmse",
+    "role": "business",
+    "name": "CGTMSE - Credit Guarantee Fund Trust for Micro and Small Enterprises",
+    "benefit": "Collateral-free credit guarantee up to ₹5 crore (85% cover for women/SC/ST/NER)",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "in",
+        "value": [
+          "new",
+          "existing"
+        ],
+        "label": "New or existing MSE"
+      },
+      {
+        "field": "annual_turnover",
+        "op": "lte",
+        "value": 250000000,
+        "label": "Turnover up to ₹25 crore (MSE definition)"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "PAN",
+      "Business registration",
+      "Financial statements",
+      "Project report (for new)",
+      "Bank sanction letter"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "business_name",
+      "business_type",
+      "registration_number",
+      "state",
+      "district",
+      "loan_amount",
+      "purpose",
+      "bank_name",
+      "guarantee_cover_required"
+    ],
+    "posted_date": "2000-08-01",
+    "last_date": null,
+    "status_note": "Bank applies for guarantee on borrower's behalf; not a direct application",
+    "summary_fallback": "CGTMSE provides credit guarantee to banks/lenders so they can give collateral-free loans to micro and small enterprises (MSEs). The guarantee covers up to 85% of the loan amount for women entrepreneurs, SC/ST entrepreneurs, and units in North Eastern Region (including Assam). Maximum guarantee is ₹5 crore. The borrower pays a guarantee fee (0.37-1.5% per annum). This is not a direct scheme — the bank applies for the guarantee when sanctioning the loan.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current guarantee cover percentages, fee structure, eligible lenders, and MSE definition.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "startup-india",
+    "role": "business",
+    "name": "Startup India - Tax Exemption & Benefits",
+    "benefit": "3-year tax holiday, patent fee rebate, self-certification, easier winding up",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "eq",
+        "value": "new",
+        "label": "Incorporated within last 10 years"
+      },
+      {
+        "field": "annual_turnover",
+        "op": "lte",
+        "value": 100000000,
+        "label": "Turnover under ₹100 crore"
+      }
+    ],
+    "documents": [
+      "Certificate of incorporation",
+      "PAN",
+      "DPIIT recognition application",
+      "Pitch deck",
+      "Website/link"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "business_name",
+      "incorporation_date",
+      "dp_iit_recognition_number",
+      "state",
+      "district",
+      "sector",
+      "annual_turnover",
+      "employees",
+      "funding_raised"
+    ],
+    "posted_date": "2016-01-16",
+    "last_date": null,
+    "status_note": "Apply for DPIIT recognition on Startup India portal",
+    "summary_fallback": "Startup India provides recognition and benefits to eligible startups. Benefits include: 3-year income tax exemption (out of first 10 years), 80% patent fee rebate, 50% trademark fee rebate, self-certification under labor/environment laws, fast-track patent examination, easier winding up (90 days), and access to Fund of Funds. Eligibility: DPIIT-recognized startup, incorporated as private limited/LLP/partnership within 10 years, turnover under ₹100 crore, working towards innovation/improvement of products/services.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current tax exemption rules, DPIIT recognition criteria, and Fund of Funds access process.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "pm-vishwakarma",
+    "role": "business",
+    "name": "PM Vishwakarma Scheme",
+    "benefit": "Toolkit incentive ₹15,000, collateral-free loan up to ₹3 lakh (5%), skill training",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "in",
+        "value": [
+          "existing",
+          "new"
+        ],
+        "label": "Traditional artisan/craftsperson"
+      },
+      {
+        "field": "sector",
+        "op": "in",
+        "value": [
+          "carpenter",
+          "blacksmith",
+          "potter",
+          "weaver",
+          "barber",
+          "tailor",
+          "mason",
+          "other traditional craft"
+        ],
+        "label": "One of 18 identified traditional trades"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Artisan certificate",
+      "Skill certificate",
+      "Bank passbook",
+      "Caste certificate (if applicable)"
+    ],
+    "apply_url": null,
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "gender",
+      "category",
+      "age",
+      "trade",
+      "state",
+      "district",
+      "years_experience",
+      "bank_account",
+      "ifsc",
+      "aadhaar_last4"
+    ],
+    "posted_date": "2023-09-17",
+    "last_date": null,
+    "status_note": "18 traditional trades; apply through CSC or PM Vishwakarma portal",
+    "summary_fallback": "PM Vishwakarma supports traditional artisans and craftspeople in 18 identified trades (carpenter, blacksmith, potter, weaver, barber, tailor, mason, etc.). Benefits include: skill training (5-7 days basic, 15+ days advanced), toolkit incentive of ₹15,000 (e-RUPI voucher), collateral-free enterprise development loan up to ₹3 lakh at 5% interest (2% interest subvention), and market linkage support. Digital ID and certificate provided. Artisans must be 18+ and engaged in the trade on a self-employed basis.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Verify current list of 18 trades, loan terms, training partners in Assam, and application process.",
+    "is_demo": false,
+    "autofill": null
+  },
+  {
+    "id": "demo-farmer-scheme",
+    "role": "farmer",
+    "name": "DEMO: PM-KISAN (Demo)",
+    "benefit": "₹6,000/year — demo scheme for testing",
+    "rules": [
+      {
+        "field": "land_hectares",
+        "op": "lte",
+        "value": 2,
+        "label": "Land holding up to 2 hectares"
+      },
+      {
+        "field": "land_ownership",
+        "op": "eq",
+        "value": "owner",
+        "label": "Land owner"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Land record",
+      "Bank passbook"
+    ],
+    "apply_url": "/mock-portal/scholarship",
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "district",
+      "land_hectares"
+    ],
+    "posted_date": "2026-11-21",
+    "last_date": "2026-11-24",
+    "status_note": "Demo scheme — expires in 3 days",
+    "summary_fallback": "Demo scheme for testing the apply flow. This is not a real government scheme.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Demo scheme only",
+    "is_demo": true,
+    "autofill": {
+      "portal_match": "localhost:3000/mock-portal",
+      "fields": [
+        {
+          "profile": "name",
+          "selector": "#name",
+          "type": "text"
+        },
+        {
+          "profile": "district",
+          "selector": "#district",
+          "type": "text"
+        },
+        {
+          "profile": "land_hectares",
+          "selector": "#land_hectares",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  {
+    "id": "demo-student-scheme",
+    "role": "student",
+    "name": "DEMO: Central Sector Scholarship (Demo)",
+    "benefit": "₹10,000-20,000/year — demo scheme for testing",
+    "rules": [
+      {
+        "field": "education_level",
+        "op": "in",
+        "value": [
+          "ug",
+          "pg"
+        ],
+        "label": "UG or PG student"
+      },
+      {
+        "field": "last_exam_percent",
+        "op": "gte",
+        "value": 80,
+        "label": "80%+ in Class 12"
+      },
+      {
+        "field": "annual_income",
+        "op": "lte",
+        "value": 450000,
+        "label": "Income up to ₹4.5 lakh"
+      },
+      {
+        "field": "institution_type",
+        "op": "eq",
+        "value": "govt",
+        "label": "Government institution"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "Class 12 marksheet",
+      "Income certificate",
+      "Bank passbook",
+      "Bonafide certificate"
+    ],
+    "apply_url": "/mock-portal/scholarship",
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "course",
+      "institution_name",
+      "class12_percentage",
+      "annual_income"
+    ],
+    "posted_date": "2026-11-21",
+    "last_date": "2026-11-24",
+    "status_note": "Demo scheme — expires in 3 days",
+    "summary_fallback": "Demo scheme for testing the apply flow. This is not a real government scheme.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Demo scheme only",
+    "is_demo": true,
+    "autofill": {
+      "portal_match": "localhost:3000/mock-portal",
+      "fields": [
+        {
+          "profile": "name",
+          "selector": "#name",
+          "type": "text"
+        },
+        {
+          "profile": "course",
+          "selector": "#course",
+          "type": "text"
+        },
+        {
+          "profile": "institution_type",
+          "selector": "#institution_type",
+          "type": "text"
+        }
+      ]
+    }
+  },
+  {
+    "id": "demo-business-scheme",
+    "role": "business",
+    "name": "DEMO: PM Mudra Yojana (Demo)",
+    "benefit": "Up to ₹10 lakh loan — demo scheme for testing",
+    "rules": [
+      {
+        "field": "business_stage",
+        "op": "in",
+        "value": [
+          "idea",
+          "new",
+          "existing"
+        ],
+        "label": "Any business stage"
+      },
+      {
+        "field": "annual_turnover",
+        "op": "lte",
+        "value": 5000000,
+        "label": "Turnover up to ₹50 lakh"
+      }
+    ],
+    "documents": [
+      "Aadhaar",
+      "PAN",
+      "Business proof",
+      "Bank statement"
+    ],
+    "apply_url": "/mock-portal/scholarship",
+    "source_url": null,
+    "form_fields": [
+      "name",
+      "business_name",
+      "business_stage",
+      "annual_turnover",
+      "loan_amount"
+    ],
+    "posted_date": "2026-11-21",
+    "last_date": "2026-11-24",
+    "status_note": "Demo scheme — expires in 3 days",
+    "summary_fallback": "Demo scheme for testing the apply flow. This is not a real government scheme.",
+    "verified": false,
+    "last_verified": null,
+    "verify_notes": "Demo scheme only",
+    "is_demo": true,
+    "autofill": {
+      "portal_match": "localhost:3000/mock-portal",
+      "fields": [
+        {
+          "profile": "name",
+          "selector": "#name",
+          "type": "text"
+        },
+        {
+          "profile": "business_name",
+          "selector": "#business_name",
+          "type": "text"
+        },
+        {
+          "profile": "business_stage",
+          "selector": "#business_stage",
+          "type": "text"
+        }
+      ]
+    }
+  }
+]

@@ -13,7 +13,8 @@
 | Notifications | In-app bell + list (stored in JSON) | Email is a stretch goal only |
 | Tests | One script: `npx tsx scripts/test-engine.ts` with `node:assert` | No test framework |
 | Extension | Chrome Manifest V3, plain JS, no build step | Load unpacked |
-| Design | Fixed in `docs/design-system.md` | Tailwind + CSS variables, Young Serif + Figtree via `next/font/google` |
+| Design | Fixed in `docs/design-system.md` | Tailwind + CSS variables, Instrument Serif + Figtree via `next/font/google` |
+| Animation | Framer Motion only (layout transition for the command bar, card entrances, drawer) | Verify package name and React compatibility with `npm view`; mesh and pulse effects use plain CSS |
 | Hosting | Run locally for the demo (`npm run dev` or `npm run build && npm start`) | Vercel optional, see architecture notes |
 
 ## Env file `web/.env.local` (create with blanks, user fills)
@@ -29,4 +30,4 @@ ADMIN_PASSWORD=
 Also create `web/.env.example` with the same keys and no values.
 
 ## Forbidden
-Supabase, Prisma/ORMs, Redux/Zustand, UI kits (MUI, shadcn, etc.), Docker, any paid service, any scraping of government sites.
+Supabase, Prisma/ORMs, Redux/Zustand, UI kits (MUI, shadcn, etc.), any animation library other than Framer Motion, Docker, any paid service, any scraping of government sites.

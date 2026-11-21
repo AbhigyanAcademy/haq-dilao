@@ -11,7 +11,8 @@ Read this file at the start of every session and before every build step.
 - Eligibility is decided by deterministic code, NEVER by the LLM.
 - The LLM only: summarizes a scheme in simple language, and writes a short personalized insight from facts we pass in. It must not add facts.
 - Never store Aadhaar numbers, OTPs or portal passwords. Never auto-submit government forms.
-- All UI must follow `docs/design-system.md`. No other UI libraries, no invented colors, fonts or components.
+- All UI must follow `docs/design-system.md` (frosted glass + command bar). The ONLY allowed UI/animation library besides Tailwind is Framer Motion; verify the current package name and a React-compatible version with `npm view` (the package may be `motion` or `framer-motion`). No invented colors, fonts or components.
+- The command bar (see `docs/command-bar.md`) only filters and explains already-eligible schemes through an intent allowlist; the LLM never returns scheme data.
 - Secrets only in `web/.env.local`. Never print them.
 - After each step: checkpoint message + update `docs/progress.md` + commit.
 - If blocked or unsure: STOP and ask the user.

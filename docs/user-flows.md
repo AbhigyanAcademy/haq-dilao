@@ -6,7 +6,7 @@
 ## Citizen flow
 1. Landing -> Register step 1 (email, password, name, role, common fields).
 2. Register step 2 (role-specific fields) -> dashboard.
-3. Dashboard: only eligible schemes, with badges (New / Closing soon / Open all year), apply score, countdown. Collapsed "Closed" section. Bell icon with unread count.
+3. Dashboard opens in the command-bar start state (greeting, counts, centered bar, quick-prompt pills). Submitting a query or tapping a pill glides the bar upward and materializes the matching glass cards. A "Show all my schemes" pill lists everything. Cards show only eligible schemes, with badges (New / Closing soon / Open all year), apply score, countdown. Collapsed "Closed" section. Bell icon with unread count.
 4. Open scheme: summary, why you qualify, documents checklist (tick owned docs; apply score updates), dates, Apply button.
 5. Apply: application sheet with copy buttons; "Open official portal" (and extension autofill if installed); then "I have applied" form -> enter application ID -> tracker entry.
 6. Applications page: timeline per application; demo "simulate update" button.
