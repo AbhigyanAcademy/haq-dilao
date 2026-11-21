@@ -6,7 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "seed": "tsx scripts/seed.ts",
+    "warm-cache": "tsx scripts/warm-cache.ts",
+    "test-engine": "tsx scripts/test-engine.ts",
+    "test-intents": "tsx scripts/test-intents.ts"
   },
   "dependencies": {
     "bcryptjs": "^3.0.3",
