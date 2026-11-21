@@ -108,19 +108,19 @@ function main() {
       documents_have: du.documents_have,
       // Farmer
       land_hectares: du.land_hectares ?? 0,
-      land_ownership: du.land_ownership ?? "none",
+      land_ownership: du.land_ownership ?? ("none" as const),
       crops: du.crops ?? [],
       has_irrigation: du.has_irrigation ?? false,
       has_kcc: du.has_kcc ?? false,
       bank_account_linked: du.bank_account_linked ?? true,
       // Student
-      education_level: du.education_level ?? "school",
+      education_level: du.education_level ?? ("school" as const),
       course: du.course ?? "",
-      institution_type: du.institution_type ?? "govt",
+      institution_type: du.institution_type ?? ("govt" as const),
       last_exam_percent: du.last_exam_percent ?? 0,
       studying_outside_state: du.studying_outside_state ?? false,
       // Business
-      business_stage: du.business_stage ?? "idea",
+      business_stage: du.business_stage ?? ("idea" as const),
       sector: du.sector ?? "",
       annual_turnover: du.annual_turnover ?? 0,
       employees: du.employees ?? 0,

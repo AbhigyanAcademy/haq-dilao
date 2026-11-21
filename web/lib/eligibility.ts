@@ -5,10 +5,7 @@ import type { User, Scheme, SchemeRule, EligibilityResult, RuleResult, ApplyScor
 
 function getUserField(user: User, field: string): unknown {
   // Direct field access
-  if (field in user) {
-    return (user as Record<string, unknown>)[field];
-  }
-  return undefined;
+  return (user as unknown as Record<string, unknown>)[field];
 }
 
 function evaluateRule(user: User, rule: SchemeRule): RuleResult {
@@ -61,15 +58,19 @@ function evaluateRule(user: User, rule: SchemeRule): RuleResult {
         reason = passed ? `${userValue} ≥ ${ruleValue}` : `${userValue} < ${ruleValue}`;
         break;
 
-      case "in":
-        passed = Array.isArray(ruleValue) && ruleValue.includes(userValue);
-        reason = passed ? `one of [${ruleValue.join(", ")}]` : `${userValue} not in [${ruleValue.join(", ")}]`;
+      case "in": {
+        const arr = (Array.isArray(ruleValue) ? ruleValue : []) as (string | number)[];
+        passed = arr.includes(userValue as string | number);
+        reason = passed ? `one of [${arr.join(", ")}]` : `${userValue} not in [${arr.join(", ")}]`;
         break;
+      }
 
-      case "not_in":
-        passed = Array.isArray(ruleValue) && !ruleValue.includes(userValue);
-        reason = passed ? `not in [${ruleValue.join(", ")}]` : `${userValue} is in excluded list`;
+      case "not_in": {
+        const arr = (Array.isArray(ruleValue) ? ruleValue : []) as (string | number)[];
+        passed = !arr.includes(userValue as string | number);
+        reason = passed ? `not in [${arr.join(", ")}]` : `${userValue} is in excluded list`;
         break;
+      }
 
       case "between": {
         const [min, max] = Array.isArray(ruleValue) ? ruleValue : [0, 0];
