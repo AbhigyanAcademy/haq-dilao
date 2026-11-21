@@ -106,7 +106,7 @@ export default function LandingPage() {
           </div>
           <nav className="flex items-center gap-4">
             <Link href="/login" className="text-sm font-medium text-[var(--text-2)] hover:text-[var(--text-1)] transition-colors">Log in</Link>
-            <Link href="/register" className="btn-primary text-sm">Check my schemes</Link>
+            <Link href="/register/step1" className="btn-primary text-sm">Check my schemes</Link>
           </nav>
         </div>
         {/* Gamosa thread */}
@@ -157,7 +157,7 @@ export default function LandingPage() {
         {/* CTA */}
         <section className="text-center">
           <Link
-            href="/register"
+            href="/register/step1"
             className="inline-flex items-center justify-center px-8 py-4 btn-primary text-base shadow-[var(--glass-shadow)]"
           >
             Check my schemes

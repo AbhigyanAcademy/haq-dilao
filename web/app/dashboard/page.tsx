@@ -593,8 +593,8 @@ function DashboardContent() {
     async function loadData() {
       try {
         const [userRes, schemesRes] = await Promise.all([
-          fetch("/api/auth/me"),
-          fetch("/api/schemes"),
+          fetch("/api/auth/me", { credentials: "include" }),
+          fetch("/api/schemes", { credentials: "include" }),
         ]);
 
         const userData = await userRes.json();
