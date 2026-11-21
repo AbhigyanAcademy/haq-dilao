@@ -1,0 +1,23 @@
+app = "haq-dilao"
+primary_region = "bom"
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  NODE_ENV = "production"
+  NVIDIA_API_KEY = "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"
+  NVIDIA_BASE_URL = "https://integrate.api.nvidia.com/v1"
+  NVIDIA_MODEL = "nvidia/nemotron-3.5-super-vl-120b-a12b"
+  GEMINI_API_KEY = "AQ.Ab8RN6LtN7o39fZqxVxBKJX0Jz3lxi69zMWMiXIYwrw10-KVxQ"
+  GEMINI_MODEL = "gemini-3.8-flash"
+  GROQ_API_KEY = "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"
+  GROQ_MODEL = "qwen/qwen3.8-27b"
+  SESSION_SECRET = "b07MvTBs2/iddY7MoVqmUgu6x07T67C0TjfjQPSJgt0="
+  ADMIN_PASSWORD = ""
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = false
+  min_machines_running = 1

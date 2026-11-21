@@ -1,0 +1,27 @@
+{
+  "type": "web_service",
+  "name": "haq-dilao",
+  "ownerId": "tea-d7mor8gk1i2s7398l7a0",
+  "repo": "https://github.com/AbhigyanAcademy/haq-dilao",
+  "branch": "master",
+  "rootDir": "web",
+  "runtime": "node",
+  "buildCommand": "npm install && npm run build",
+  "startCommand": "npm start",
+  "serviceDetails": {
+    "buildCommand": "npm install && npm run build",
+    "startCommand": "npm start"
+  },
+  "envVars": [
+    {"key": "NODE_ENV", "value": "production"},
+    {"key": "NVIDIA_API_KEY", "value": "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"},
+    {"key": "NVIDIA_BASE_URL", "value": "https://integrate.api.nvidia.com/v1"},
+    {"key": "NVIDIA_MODEL", "value": "nvidia/nemotron-3.5-super-vl-120b-a12b"},
+    {"key": "GEMINI_API_KEY", "value": "AQ.Ab8RN6LtN7o39fZqxVxBKJX0Jz3lxi69zMWMiXIYwrw10-KVxQ"},
+    {"key": "GEMINI_MODEL", "value": "gemini-3.8-flash"},
+    {"key": "GROQ_API_KEY", "value": "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"},
+    {"key": "GROQ_MODEL", "value": "qwen/qwen3.8-27b"},
+    {"key": "SESSION_SECRET", "value": "b07MvTBs2/iddY7MoVqmUgu6x07T67C0TjfjQPSJgt0="},
+    {"key": "ADMIN_PASSWORD", "value": ""}
+  ]
+}
