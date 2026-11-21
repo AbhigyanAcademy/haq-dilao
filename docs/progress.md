@@ -7,6 +7,8 @@
 | 2 Types/store/seed | done | types.ts, store.ts (atomic JSON), dates.ts (Asia/Kolkata), schemes.json (18 draft schemes: 6 per role + 3 demo), seed.ts (3 demo users + 3 date-relative demo schemes). Seed idempotent, JSON valid. |
 | 3 Eligibility + test | done | eligibility.ts (evaluate, applyScore, whyYouQualify), test-engine.ts (31 cases: all ops, missing field, near_miss, applyScore, whyYouQualify, demo users differ). All pass. |
 | 4 Auth | done | Two-step registration (step1: common fields, step2: role-specific), login, logout, JWT (jose) + bcryptjs, middleware protection, server-side validation, password_hash never returned. Build passes, pages load 200. |
+| 5 Dashboard/detail | done | Dashboard with command bar (deterministic intents, 25 test cases), glass cards with score ring, doc drawer, magnetic hover; Scheme detail with AI summary placeholder, why-you-qualify, doc checklist, dates, source link, sticky apply bar. All tests pass. Build passes. |
+| 5b Command bar | done | Deterministic parser (lib/intents.ts) with 9 intents, quick-prompt pills, animated glide from center to top, mobile docking. 25 test cases pass. |
 | 5 Dashboard/detail | pending | |
 | 5b Command bar | pending | |
 | 6 LLM layer | pending | |
