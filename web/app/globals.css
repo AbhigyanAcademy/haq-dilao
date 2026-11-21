@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  /* Haq Dilao Design System - Color Tokens */
+  --ink: #12312B;           /* Tea Ink - primary text, primary buttons */
+  --paper: #F6F7F4;         /* Page background */
+  --sage: #DDE7E0;          /* Borders, dividers, secondary surfaces */
+  --gamosa: #B4232C;        /* Brand motif, urgency ("Closing soon") */
+  --brass: #B88A2E;         /* "New" badge, high apply score */
+  --slate: #5B6B66;         /* Muted text */
+  --success: #1F7A4D;       /* Eligible/Approved */
+  --surface: #FFFFFF;       /* Card surfaces */
+
+  /* Radius */
+  --radius-claim: 20px;     /* Claim slip */
+  --radius-panel: 16px;     /* Panels */
+  --radius-input: 12px;     /* Inputs, buttons */
+  --radius-badge: 9999px;   /* Badges, chips */
+
+  /* Shadow */
+  --shadow-soft: 0 1px 2px rgba(18,49,43,.06), 0 8px 24px rgba(18,49,43,.06);
+  --shadow-hover: 0 2px 4px rgba(18,49,43,.08), 0 12px 32px rgba(18,49,43,.08);
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --color-primary: var(--ink);
+  --color-secondary: var(--sage);
+  --color-accent: var(--gamosa);
+  --color-muted: var(--slate);
+  --color-success: var(--success);
+  --color-warning: var(--gamosa);
+  --color-info: var(--brass);
+
+  --radius-claim: var(--radius-claim);
+  --radius-panel: var(--radius-panel);
+  --radius-input: var(--radius-input);
+  --radius-badge: var(--radius-badge);
+
+  --shadow-soft: var(--shadow-soft);
+  --shadow-hover: var(--shadow-hover);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Keep light theme only per design system */
+    --background: var(--paper);
+    --foreground: var(--ink);
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-figtree), system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+/* Gamosa edge - signature element */
+.gamosa-edge {
+  height: 10px;
+  background:
+    linear-gradient(135deg, transparent 45%, var(--paper) 45% 55%, transparent 55%) 0 0 / 12px 10px,
+    linear-gradient(45deg, transparent 45%, var(--paper) 45% 55%, transparent 55%) 0 0 / 12px 10px,
+    var(--gamosa);
+}
+
+/* Claim slip card */
+.claim-slip {
+  background: var(--surface);
+  border-radius: var(--radius-claim);
+  border: 1px solid var(--sage);
+  box-shadow: var(--shadow-soft);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.claim-slip:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Score ring animation */
+@keyframes ring-fill {
+  from { stroke-dashoffset: 283; }
+  to { stroke-dashoffset: var(--ring-offset); }
+}
+
+.score-ring circle:last-child {
+  animation: ring-fill 800ms ease-out forwards;
+}
+
+/* Badge variants */
+.badge-new { background: var(--brass); color: var(--ink); }
+.badge-closing { background: var(--gamosa); color: white; }
+.badge-open { background: var(--sage); color: var(--ink); }
+.badge-applied { background: var(--success); color: white; }
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Utility classes */
+.text-balance { text-wrap: balance; }
+.max-w-prose { max-width: 70ch; }
