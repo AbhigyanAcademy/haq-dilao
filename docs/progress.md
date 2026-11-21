@@ -11,9 +11,9 @@
 | 5b Command bar | done | Deterministic parser (lib/intents.ts) with 9 intents, quick-prompt pills, animated glide from center to top, mobile docking. 25 test cases pass. |
 | 6 LLM layer | done | NVIDIA (nvidia/nemotron-3.5-super-vl-120b-a12b) → Groq (qwen/qwen3.8-27b) → static fallback chain with 8s timeout. Caching in summary-cache.json & insight-cache.json. warm-cache script. NVIDIA generates summaries, Groq fallback verified. |
 | 7 Apply/tracker | done | Apply sheet with pre-filled answers, copy buttons, open portal, mark applied via API; Applications tracker with status timeline, demo simulate update button advances status and creates notification. Build passes. |
-| 8 Notifications/admin | pending | |
-| 9 Mock portal/extension | pending | |
-| 10 Polish/demo | pending | |
+| 8 Notifications/admin | done | Notifications bell with unread count + dropdown; Admin panel with password login, add scheme form, quick-fill demo button, scheme list, notifications sent to eligible users. Build passes. |
+| 9 Mock portal/extension | skipped | Per scope cut (time) |
+| 10 Polish/demo | pending | Build, push to GitHub, deploy to Vercel |
 
 ## Decisions and blockers
 (append below)
