@@ -10,6 +10,99 @@ import { parseIntent, executeIntent, QUICK_PROMPTS } from "@/lib/intents";
 import { getSchemeDateInfo } from "@/lib/dates";
 import type { User, Scheme } from "@/lib/types";
 
+// --- Notification Bell ---
+function NotificationBell({ user }: { user: User }) {
+  const [notifications, setNotifications] = useState<{ id: string; message: string; read: boolean; created_at: string; scheme_id?: string }[]>([]);
+  const [unreadCount, setUnreadCount] = useState(0);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const res = await fetch("/api/notifications");
+        const data = await res.json();
+        setNotifications(data.notifications || []);
+        setUnreadCount(data.unreadCount || 0);
+      } catch {}
+    };
+    load();
+  }, [user.id]);
+
+  const markAllRead = async () => {
+    await fetch("/api/notifications", {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ markAllRead: true }),
+    });
+    setNotifications(prev => prev.map(n => ({ ...n, read: true })));
+    setUnreadCount(0);
+  };
+
+  if (notifications.length === 0 && unreadCount === 0) {
+    return (
+      <Link href="/notifications" className="relative p-2 text-[var(--text-2)] hover:text-[var(--text-1)] transition-colors">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+        </svg>
+      </Link>
+    );
+  }
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="relative p-2 text-[var(--text-2)] hover:text-[var(--text-1)] transition-colors"
+        aria-label="Notifications"
+        aria-expanded={open}
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+          <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+        </svg>
+        {unreadCount > 0 && (
+          <span className="absolute -top-1 -right-1 w-5 h-5 bg-[var(--urgent)] text-white text-xs font-bold rounded-full flex items-center justify-center">
+            {unreadCount > 9 ? "9+" : unreadCount}
+          </span>
+        )}
+      </button>
+      {open && (
+        <div className="absolute right-0 mt-2 w-80 glass-card rounded-[var(--radius-panel)] overflow-hidden z-50 animate-in slide-in-from-top-2 duration-200">
+          <div className="p-3 border-b border-white/10 flex items-center justify-between">
+            <h3 className="serif text-[18px] text-[var(--text-1)]">Notifications</h3>
+            <button onClick={markAllRead} className="text-xs text-[var(--new)] hover:underline">Mark all read</button>
+          </div>
+          <div className="max-h-96 overflow-y-auto">
+            {notifications.slice(0, 10).map(n => (
+              <button
+                key={n.id}
+                onClick={async () => {
+                  await fetch("/api/notifications", {
+                    method: "PATCH",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ notificationId: n.id }),
+                  });
+                  setNotifications(prev => prev.map(x => x.id === n.id ? { ...x, read: true } : x));
+                  setUnreadCount(prev => Math.max(0, prev - 1));
+                  if (n.scheme_id) window.location.href = `/schemes/${n.scheme_id}`;
+                }}
+                className={`w-full text-left p-3 hover:bg-white/5 transition-colors ${!n.read ? "bg-white/5" : ""}`}
+              >
+                <p className={`text-sm ${!n.read ? "font-medium" : ""} text-[var(--text-1)]`}>{n.message}</p>
+                <p className="text-xs text-[var(--text-3)] mt-1">{new Date(n.created_at).toLocaleString()}</p>
+              </button>
+            ))}
+          </div>
+          <div className="p-3 border-t border-white/10">
+            <Link href="/notifications" className="text-sm text-[var(--new)] hover:underline block text-center">View all notifications</Link>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // --- Mesh Background ---
 function MeshBackground() {
   const [paused, setPaused] = useState(false);
@@ -609,12 +702,7 @@ function DashboardContent() {
             <span className="text-[10px] uppercase tracking-wider text-[var(--gamosa)]">Know what you can claim</span>
           </div>
           <nav className="flex items-center gap-4">
-            <Link href="/notifications" className="relative p-2 text-[var(--text-2)] hover:text-[var(--text-1)] transition-colors">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
-                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
-              </svg>
-            </Link>
+            <NotificationBell user={user} />
             <Link href="/profile" className="px-3 py-1.5 text-sm font-medium text-[var(--text-2)] hover:text-[var(--text-1)] transition-colors">
               Profile
             </Link>
